@@ -8,9 +8,10 @@ class StoreFiles(object):
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
-    def add_item(self, file_to_add: str) -> bool:
+    def add_item(self, string_to_add: str) -> bool:
         """
-        :param file_to_add: string representing a file
-        :return: boolean representing whether a file was added or already existed meaning it was a duplicate
+        :param string_to_add: string representing a file
+        :return: boolean representing whether a file was added or already existed meaning it
+        was a duplicate
         """
         pass

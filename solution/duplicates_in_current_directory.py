@@ -5,11 +5,13 @@ from solution.duplicates import Duplicates
 
 
 class DuplicatesInCurrentDirectory(Duplicates):
-
+    """
+    Class containing a list of duplicates in current directory
+    """
     def __init__(self):
         self.duplicates = []
 
-    def find_duplicates(self, path: Path, encoding: EncodeFile, unique_files: StoreFiles) -> []:
+    def find_duplicates(self, path: Path, encoding: EncodeFile, unique_files: StoreFiles):
         """
         Builds set of hashed files retrieved from folder. If the entry already exists flag it as duplicate.
 
@@ -28,7 +30,7 @@ class DuplicatesInCurrentDirectory(Duplicates):
                     hashed_file = encoding.get_encoding(current_file)
 
                     # If couldn't be added to the set it's a duplicate
-                    if unique_files.add_item(hashed_file) == False:
+                    if not unique_files.add_item(hashed_file):
                         self.duplicates.append(current_file.name)
 
     def get_duplicates(self):

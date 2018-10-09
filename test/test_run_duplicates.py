@@ -29,6 +29,7 @@ class TestRun(TestCase):
         """
         # Mock user input
         # return_value = path from root folder to testing folder
-        with mock.patch('builtins.input', return_value=r'../duplicate_files/test/files_for_testing/example_files'):
+        path = r'../duplicate_files/test/files_for_testing/example_files'
+        with mock.patch('builtins.input', return_value=path):
             self.assertEqual(['4969'], main())
 

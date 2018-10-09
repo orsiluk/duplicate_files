@@ -7,6 +7,9 @@ from solution.duplicates_in_current_directory import DuplicatesInCurrentDirector
 
 
 def main():
+    """
+    Main function to run the project
+    """
     my_directory = input('Please provide relative path to the target folder to look for duplicates.\n')
     try:
         if Path.is_dir(Path(my_directory)) and my_directory != '':
@@ -15,10 +18,9 @@ def main():
             duplicates_in_directory = DuplicatesInCurrentDirectory()
             duplicates_in_directory.find_duplicates(Path(my_directory), file_encoding, duplicate_set)
             return duplicates_in_directory.get_duplicates()
-        else:
-            raise ValueError("You must provide a valid folder!")
+        raise ValueError("You must provide a valid folder!")
     except ValueError:
-        return
+        return []
 
 
 if __name__ == '__main__':

@@ -1,5 +1,4 @@
 import abc
-from hashlib import sha256
 from pathlib import Path
 
 
@@ -11,15 +10,12 @@ class EncodeFile(object):
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
-    def get_encoding(self, path: Path) -> str:
+    def get_encoding(self, file_name: Path) -> str:
         """
         Get encoding of a file given the path
 
-        :param path: os.path
+        :param file_name: os.path
         :return a string containing the hashed value
-        Dummy implementation for testing purposes
         """
-        h = sha256()
-        h.update(path.name)
 
-        return h.hexdigest()
+        pass

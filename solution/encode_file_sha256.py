@@ -1,6 +1,7 @@
 from hashlib import sha256
-from solution.encode_file import EncodeFile
 from pathlib import Path
+
+from solution.encode_file import EncodeFile
 
 
 class EncodeSha256(EncodeFile):

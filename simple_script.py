@@ -3,7 +3,7 @@
 from pathlib import Path
 from os import path as os_path
 from hashlib import sha256
-import time
+
 file_set = set()
 
 
@@ -15,14 +15,14 @@ def sha256_file(filename: os_path) -> str:
     :param filename: path to file that has to be encoded
     :returns: string representing the encoded file
     """
-    h = sha256()
+    hash_func = sha256()
     # Open file with 'rb' - treat it as binary
-    with open(filename, 'rb') as f:
+    with open(filename, 'rb') as file:
         # Read file in 128 KiB chunks
-        for b in iter(lambda: f.read(128 * 1024), b''):
-            h.update(b)
+        for b in iter(lambda: file.read(128 * 1024), b''):
+            hash_func.update(b)
 
-    return h.hexdigest()
+    return hash_func.hexdigest()
 
 
 def find_duplicates(path: Path)->[]:
@@ -51,11 +51,8 @@ def main():
     directory = input('Path from current directory to folder we want to find the duplicates in.\n')
     try:
         if os_path.isdir(directory):
-            # start_time = time.time()
             duplicates = find_duplicates(Path(directory))
             print(duplicates)
-            # print(len(duplicates))
-            # print("--- %s seconds ---" % (time.time() - start_time))
         else:
             raise ValueError
     except ValueError:
@@ -64,5 +61,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-

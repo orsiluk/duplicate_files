@@ -1,7 +1,8 @@
 from unittest import TestCase
-from solution.encode_file_sha256 import EncodeSha256
 from pathlib import Path
 from hashlib import sha256
+
+from solution.encode_file_sha256 import EncodeSha256
 
 
 class TestEncodeSha256(TestCase):
@@ -29,8 +30,8 @@ class TestEncodeSha256(TestCase):
     def test_encoding_accuracy(self):
         path = Path(r'../duplicate_files/test/files_for_testing/example_files/4969')
         hash_func = sha256()
-        with open(path, 'rb') as f:
-            file = f.read()
+        with open(path, 'rb') as my_file:
+            file = my_file.read()
         hash_func.update(file)
         hash_val = hash_func.hexdigest()
         self.assertEqual(hash_val, self.encoding.get_encoding(path))
@@ -38,6 +39,3 @@ class TestEncodeSha256(TestCase):
     def test_got_directory_instead_of_file(self):
         with self.assertRaises(FileNotFoundError):
             self.encoding.get_encoding(Path(r'../duplicate_files/test/files_for_testing/example_files'))
-
-
-

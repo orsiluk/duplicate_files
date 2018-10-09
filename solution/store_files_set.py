@@ -3,7 +3,8 @@ from solution.store_files import StoreFiles
 
 class StoreFilesSet(StoreFiles):
     """
-    Class checking if a file is already in the set, meaning it's a duplicate. If it is not, add it to the set.
+    Class checking if a file is already in the set, meaning it's a duplicate. If it is not,
+    add it to the set.
     """
     def __init__(self):
         self.file_set = set()
@@ -20,6 +21,6 @@ class StoreFilesSet(StoreFiles):
 
         if string_to_add in self.file_set:
             return False
-        else:
-            self.file_set.add(string_to_add)
-            return True
+
+        self.file_set.add(string_to_add)
+        return True
