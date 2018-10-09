@@ -18,9 +18,10 @@ def main():
             duplicates_in_directory = DuplicatesInCurrentDirectory()
             duplicates_in_directory.find_duplicates(Path(my_directory), file_encoding, duplicate_set)
             return duplicates_in_directory.get_duplicates()
-        raise ValueError("You must provide a valid folder!")
+        else:
+            raise ValueError("You must provide a valid folder!")
     except ValueError:
-        return []
+        return
 
 
 if __name__ == '__main__':
