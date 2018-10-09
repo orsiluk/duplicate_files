@@ -1,8 +1,6 @@
 
 \.DS_Store
 
-with_classes_and_abstractions/__pycache__/
-
 \.idea/workspace\.xml
 
 __pycache__/
